@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="nodeTipp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA5ubmAJKS9wCRkZQAo6PMALW1ugBZWVkAtrb6AKCgowBlZWkA8vLyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmZmZmAAAABkREd3dgAAAGRER3d2AAAANEZHZ3MAAABmVEd6ZgAAAGURGqqmAAAGZYgaiKZgAAZYABoAimAABlgAGgCKYAAGWIgaiIpgAGZZmRqZmmYGIlURGqqqImYlZlEaqmaiZlZWZmZmiGpmZWiAAAaGBmAAZgAABmYADwDwAA4AcAAOAHAADgBwAA4AcAAOAHAADAAwAAwAMAAMADAADAAwAAgAEAAAAAAAAAAAAAAAAAAAPEAADnxwAA" rel="icon" type="image/x-icon" />
+    <title>Angular KuhTipp App</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="stylesheet" href="/rzslider.min.css"><!-- load bootstrap -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script><!-- load angular -->
+    <script src="/rzslider.min.js"></script><!-- load rzslider -->
+    <script src="core.js"></script> <!-- load core -->
+</head>
+<body ng-controller="mainController">
+    <div class="container">
+        <!-- Tipp Count -->
+        <div class="page-header text-center">
+            <h1>KuhTipp v0.1
+                <br>
+                <small>Bisher abgegebene Tipps: <span class="label label-default">{{tipps.length}}</span></small>
+            </h1>
+        </div>
+        <!-- Tab navigation -->
+    <section class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+            <li ng-class="{active: tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Tipps eintragen</a></li>
+            <li ng-class="{active: tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Tipps anzeigen</a></li>
+            <li ng-class="{active: tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Tipps auswerten</a></li>
+        </ul>
+        
+        <div ng-show="tab.isSet(1)">
+            <h4>Tipps eintragen</h4>
+            <!-- include template-->
+            <div ng-include="'createTipp.html'"></div>
+        </div>
+        <div ng-show="tab.isSet(2)">
+            <h4>Tipps anzeigen</h4>
+            <!-- include template-->
+            <div ng-include="'showTipps.html'" ></div>
+        </div>
+        <div ng-show="tab.isSet(3)">
+            <h4>Tipps auswerten</h4>
+            <!-- include template-->
+            <div ng-include="'evaluateTipps.html'" ></div>
+        </div>
+    </section>  
+    </div>
+</body>
+</html>

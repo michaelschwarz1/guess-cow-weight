@@ -1,0 +1,57 @@
+<!-- FORM TO CREATE Tipps -->
+<div id="tipp-form">
+    <form name="form1" class="form-horizontal" role="form" novalidate ng-submit="form1.$valid && createTipp()">
+        <div class="form-group">
+            <!-- BIND THIS VALUE TO todo.text IN ANGULAR -->
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="tippnummer">TippNr. :</label>
+                <div class="col-sm-6">
+                    <input name="tippnummer" type="number" class="form-control input-lg text-center" placeholder="Tippnummer" required ng-model="formData.tippnr">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="vorname">Vorname :</label>
+                <div class="col-sm-6">
+                    <input name="vorname" type="text" class="form-control input-lg text-center" placeholder="Vorname" required ng-model="formData.vorname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="nachname">Nachname :</label>
+                <div class="col-sm-6">
+                    <input name="nachname" type="text" class="form-control input-lg text-center" placeholder="Nachname" required ng-model="formData.nachname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="strasse">Stra&szlig;e + Hausnummer :</label>
+                <div class="col-sm-6">
+                    <input name="strasse" type="text" class="form-control input-lg text-center" placeholder="Strasse + Hausnr" ng-model="formData.strasse">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="plz">PLZ :</label>
+                <div class="col-sm-6">
+                    <input name="plz" type="number" class="form-control input-lg text-center" placeholder="PLZ" ng-maxlength="5" ng-model="formData.plz">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="ort">Ort :</label>
+                <div class="col-sm-6">
+                    <input name="ort" type="text" class="form-control input-lg text-center" placeholder="Ort" ng-model="formData.ort">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="tippgewicht">Tippgewicht :</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control input-lg text-center" placeholder="Tippgewicht" required ng-model="formData.tippgewicht">
+                </div>
+            </div>
+        </div>
+
+        <!-- createToDo() WILL CREATE NEW TODOS -->
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" ng-disabled="form1.$invalid" class="btn btn-primary btn-lg">Eintragen</button>
+            </div>
+        </div>
+    </form>
+</div>

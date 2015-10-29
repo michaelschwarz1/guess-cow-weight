@@ -1,0 +1,29 @@
+<!-- Table TIPP List -->
+<div class="table-responsive">
+    <table class="table table-striped" data-height="299" data-sort-name="nachname" data-sort-order="asc">
+        <tr>
+            <th>X</th>
+            <th>Count</th>
+            <th>Nummer</th>
+            <th>Vorname</th>
+            <th data-field="nachname">Nachname</th>
+            <th>Strasse</th>
+            <th>Plz</th>
+            <th>Ort</th>
+            <th>Gewicht</th>
+        </tr>
+        <tr ng-repeat="tipp in tipps">
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>{{$index}}</td>
+            <td>{{tipp.tippnr}}</td>
+            <td>{{tipp.vorname}}</td>
+            <td>{{tipp.nachname}}</td>
+            <td>{{tipp.strasse}}</td>
+            <td>{{tipp.plz}}</td>
+            <td>{{tipp.ort}}</td>
+            <td>{{tipp.tippgewicht}}</td>
+        </tr>
+    </table>
+</div>

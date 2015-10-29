@@ -1,0 +1,60 @@
+<div ng-controller="EvaluationController as evaluationCrtl">
+    <!-- FORM TO CREATE Tipps -->
+    <div id="tipp-form" class="row">
+        <div class="col-sm-9 col-sm-offset-1 text-center">
+
+            <form name="form2" class="form-horizontal" novalidate ng-submit="form2.$valid && evaluateTipps()">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="tippgewicht">Gewicht</label>
+                        <div class="col-sm-10">
+                            <input id="tippgewicht" type="number" class="form-control input-lg text-center" placeholder="Gesamtgewicht in Kg" required ng-model="formData2.tippgewicht" ng-change="form2.$valid && evaluateTipps()">
+                        </div>
+                    </div>
+                    <!-- <input type="number" class="form-control input-lg text-center" placeholder="Abweichung in Kg +-" required ng-model="formData2.abweichung" ng-change="form2.$valid && evaluateTipps()">-->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="slider">Abweichung</label>
+                        <div class="col-sm-10">
+
+                            <rzslider id="slider" name="slider" rz-slider-on-change="form2.$valid && evaluateTipps()" rz-slider-model="sliderValue" rz-slider-ceil="100" rz-slider-floor="0" rz-slider-step="1"></rzslider>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <!--Table TODO List -->
+    <h4>Ergebnis</h4>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th>X</th>
+                <th>Count</th>
+                <th>Nummer</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Ort</th>
+                <th>Plz</th>
+                <th>Strasse</th>
+                <th>Gewicht</th>
+                <th>Abweichung</th>
+            </tr>
+            <tr ng-repeat="tipp in results">
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>{{$index}}</td>
+                <td>{{tipp.tippnr}}</td>
+                <td>{{tipp.vorname}}</td>
+                <td>{{tipp.nachname}}</td>
+                <td>{{tipp.ort}}</td>
+                <td>{{tipp.plz}}</td>
+                <td>{{tipp.strasse}}</td>
+                <td>{{tipp.tippgewicht}}</td>
+                <td>{{tipp.abweichung}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
