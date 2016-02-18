@@ -3,9 +3,43 @@
 //email: mail@mmschwarz.de
 //
 (function () {
-    var nodeTipp = angular.module('nodeTipp', ['rzModule']);
+    var nodeTipp = angular.module('nodeTipp', ['rzModule', 'angularCharts']);
 
     nodeTipp.controller('mainController', function ($scope, $http) {
+        
+        
+        $scope.config = {
+    title: 'Products',
+    tooltips: true,
+    labels: false,
+    mouseover: function() {},
+    mouseout: function() {},
+    click: function() {},
+    legend: {
+      display: true,
+      //could be 'left, right'
+      position: 'right'
+    }
+  };
+
+  $scope.data = {
+    series: ['Sales', 'Income', 'Expense', 'Laptops', 'Keyboards'],
+    data: [{
+      x: "Laptops",
+      y: [100, 500, 0],
+      tooltip: "this is tooltip"
+    }, {
+      x: "Desktops",
+      y: [300, 100, 100]
+    }, {
+      x: "Mobiles",
+      y: [351]
+    }, {
+      x: "Tablets",
+      y: [54, 0, 879]
+    }]
+  };
+                
         $scope.formData = {};
 
         // get all the tipps from Database
@@ -91,6 +125,23 @@
                 if (keyA > keyB) return 1;
                 return 0;
             });
+        };
+
+
+    });
+
+    nodeTipp.controller('ChartController', function ($scope) {
+
+
+  
+
+        $scope.getStatistics = function () {
+            $scope.averageWeight = 0;
+            var total = 0;
+            for (var i = 0; i < $scope.tipps.length; i++) {
+                total += $scope.tipps[i].tippgewicht;
+            }
+            $scope.averageWeight = total / $scope.tipps.length;
         };
     });
 })();
